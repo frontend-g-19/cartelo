@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+ul li a.active {
+  border-bottom: 2px solid #f8f9fa;
+  padding-bottom: 5px;
+}
+
+.mobile-menu,
+.pages {
+  box-shadow: inset 0 0 50px #2c3e50;
+}
