@@ -25,8 +25,23 @@ export const ContextProvider = ({ children }) => {
 
   if (isLoading) {
     return (
-      <div className="h-screen flex items-center justify-center">
-        <div className="border-2 border-dotted border-gray-700 w-10 h-10 rounded-full animate-spin"></div>
+      <div className="h-screen flex flex-col items-center justify-center gap-4 bg-white">
+        {/* Spinner */}
+        <div className="relative">
+          <div className="w-14 h-14 border-4 border-gray-300 rounded-full"></div>
+          <div
+            className="
+            w-14 h-14 border-4 border-[#2C3E50] 
+            border-t-transparent rounded-full absolute top-0 left-0 
+            animate-spin
+          "
+          ></div>
+        </div>
+
+        {/* Text animation */}
+        <p className="text-[#2C3E50] text-lg font-semibold animate-pulse tracking-wide">
+          Loading...
+        </p>
       </div>
     );
   }
