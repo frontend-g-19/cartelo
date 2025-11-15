@@ -10,11 +10,12 @@ import Favorites from "./pages/Favorites";
 import Orders from "./pages/Orders";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+import { ContextProvider } from "./context/Context";
 
 export default function App() {
   return (
-    <main>
-      <div className="sticky top-0 left-0 right-0 bg-[#2C3E50]">
+    <ContextProvider>
+      <div className="sticky top-0 left-0 right-0 z-50 bg-[#2C3E50]">
         <Navbar />
       </div>
 
@@ -33,6 +34,6 @@ export default function App() {
       </div>
 
       <Footer />
-    </main>
+    </ContextProvider>
   );
 }
