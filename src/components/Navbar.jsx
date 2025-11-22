@@ -45,12 +45,18 @@ export default function Navbar() {
       </ul>
 
       <div className="hidden md:flex items-center gap-5">
-        <button className="flex items-center gap-2 bg-[#F8F9FA] py-1.5 px-8 rounded-xl text-lg font-semibold text-[#2C3E50] cursor-pointer">
+        <button
+          onClick={() => navigate("/favorites")}
+          className="flex items-center gap-2 bg-[#F8F9FA] py-1.5 px-8 rounded-xl text-lg font-semibold text-[#2C3E50] cursor-pointer"
+        >
           <MdFavorite size={22} />
           Favorites
         </button>
 
-        <button className="flex items-center gap-2 bg-[#F8F9FA] py-1.5 px-8 rounded-xl text-lg font-semibold text-[#2C3E50] cursor-pointer">
+        <button
+          onClick={() => navigate("/cart")}
+          className="flex items-center gap-2 bg-[#F8F9FA] py-1.5 px-8 rounded-xl text-lg font-semibold text-[#2C3E50] cursor-pointer"
+        >
           <IoMdCart size={22} />
           Cart
         </button>
@@ -98,12 +104,18 @@ export default function Navbar() {
           </ul>
 
           <div className="md:hidden space-y-5">
-            <button className="flex items-center gap-2 py-1.5 px-8 rounded-xl border-2 w-full text-lg font-semibold text-[#2C3E50] cursor-pointer">
+            <button
+              onClick={() => navigate("/favorites")}
+              className="flex items-center gap-2 py-1.5 px-8 rounded-xl border-2 w-full text-lg font-semibold text-[#2C3E50] cursor-pointer"
+            >
               <MdFavorite size={22} />
               Favorites
             </button>
 
-            <button className="flex items-center gap-2 py-1.5 px-8 rounded-xl border-2 w-full text-lg font-semibold text-[#2C3E50] cursor-pointer">
+            <button
+              onClick={() => navigate("/cart")}
+              className="flex items-center gap-2 py-1.5 px-8 rounded-xl border-2 w-full text-lg font-semibold text-[#2C3E50] cursor-pointer"
+            >
               <IoMdCart size={22} />
               Cart
             </button>
