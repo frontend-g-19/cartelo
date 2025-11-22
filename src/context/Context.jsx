@@ -6,19 +6,24 @@ export const Context = createContext();
 
 export const ContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("favorites")) || []
+  );
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchingDataProducts = () => {
+    const fetchingDataProducts = async () => {
       try {
-        axios.get("https://fakestoreapi.com/products").then((res) => {
-          // console.log(res.data);
-          // setProducts(res.data);
+        const res = await axios.get("https://fakestoreapi.com/products");
+        const combinedProducts = [...res.data, ...defaultProducts];
 
-          const combinedProducts = [...res.data, ...defaultProducts];
-          setProducts(combinedProducts);
-          setIsLoading(false);
-        });
+        const updatedProducts = combinedProducts.map((mahsulot) => ({
+          ...mahsulot,
+          liked: favorites.some((f) => f.id === mahsulot.id),
+        }));
+
+        setProducts(updatedProducts);
+        setIsLoading(false);
       } catch (error) {
         console.log("Malumotlar yuklashda xatolik yuz berdi!");
       }
@@ -26,6 +31,23 @@ export const ContextProvider = ({ children }) => {
 
     fetchingDataProducts();
   }, []);
+
+  // like funksiyasi
+  const toggleFavorite = (product) => {
+    let updatedFavorites;
+    if (favorites.some((f) => f.id === product.id)) {
+      updatedFavorites = favorites.filter((f) => f.id !== product.id);
+    } else {
+      updatedFavorites = [...favorites, product];
+    }
+
+    setFavorites(updatedFavorites);
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+
+    setProducts((prev) =>
+      prev.map((p) => (p.id === product.id ? { ...p, liked: !p.liked } : p))
+    );
+  };
 
   if (isLoading) {
     return (
@@ -50,5 +72,9 @@ export const ContextProvider = ({ children }) => {
     );
   }
 
-  return <Context.Provider value={{ products }}>{children}</Context.Provider>;
+  return (
+    <Context.Provider value={{ products, favorites, toggleFavorite }}>
+      {children}
+    </Context.Provider>
+  );
 };

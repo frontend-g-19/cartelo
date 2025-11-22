@@ -5,7 +5,7 @@ import { IoMdCart } from "react-icons/io";
 import { Rating, Stack } from "@mui/material";
 
 export default function Home() {
-  const { products } = useContext(Context);
+  const { products, toggleFavorite } = useContext(Context);
 
   return (
     <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-10 py-16 px-4">
