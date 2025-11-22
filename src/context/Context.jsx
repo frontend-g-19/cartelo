@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
+import { defaultProducts } from "../db/data";
 
 export const Context = createContext();
 
@@ -12,7 +13,10 @@ export const ContextProvider = ({ children }) => {
       try {
         axios.get("https://fakestoreapi.com/products").then((res) => {
           // console.log(res.data);
-          setProducts(res.data);
+          // setProducts(res.data);
+
+          const combinedProducts = [...res.data, ...defaultProducts];
+          setProducts(combinedProducts);
           setIsLoading(false);
         });
       } catch (error) {
