@@ -8,16 +8,16 @@ export default function Home() {
   const { products, toggleFavorite } = useContext(Context);
 
   return (
-    <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-10 py-16 px-4">
+    <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 py-16 px-4">
       {products.map((tovar) => (
         <div
           key={tovar.id}
           className="
             relative flex flex-col justify-between
-            rounded-xl shadow-md p-4 bg-white
+            rounded-2xl shadow-md p-4 bg-white
             transition-all duration-300
             hover:shadow-xl hover:-translate-y-1
-            min-h-[380px] max-w-[330px] mx-auto
+            min-h-[380px] w-full max-w-[330px] mx-auto
           "
         >
           {/* Badge + Like */}
@@ -26,8 +26,15 @@ export default function Home() {
               {tovar.rating.count}
             </span>
 
-            <button className="text-red-500 cursor-pointer hover:scale-110 transition">
-              <IoIosHeartEmpty size={22} />
+            <button
+              onClick={() => toggleFavorite(tovar)}
+              className="text-red-500 cursor-pointer hover:scale-110 transition"
+            >
+              {tovar.liked ? (
+                <IoMdHeart size={22} />
+              ) : (
+                <IoIosHeartEmpty size={22} />
+              )}
             </button>
           </div>
 
