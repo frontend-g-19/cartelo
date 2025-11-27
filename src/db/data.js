@@ -138,4 +138,141 @@ export const defaultProducts = [
       count: 200,
     },
   },
+  {
+    id: 31,
+    title: "Sony WH-1000XM5 Headphones",
+    price: 329.99,
+    description:
+      "Industry-leading noise-cancelling wireless headphones with premium sound quality.",
+    category: "electronics",
+    image: "https://newworld.co.za/cdn/shop/products/1w.webp?v=1749140803",
+    rating: {
+      rate: 4.8,
+      count: 1120,
+    },
+  },
+  {
+    id: 32,
+    title: "Adidas UltraBoost 22 Running Shoes",
+    price: 159.99,
+    description:
+      "Comfortable and responsive running shoes designed for daily training.",
+    category: "men's shoes",
+    image:
+      "https://markastorelb.com/cdn/shop/files/rn-image_picker_lib_temp_47bb56e1-1491-47d6-8f70-b60609126ac0.png?v=1711190516",
+    rating: {
+      rate: 4.5,
+      count: 540,
+    },
+  },
+  {
+    id: 33,
+    title: "Apple iPad 10th Generation",
+    price: 449.99,
+    description:
+      "Sleek and powerful tablet perfect for study, entertainment, and productivity.",
+    category: "electronics",
+    image:
+      "https://olcha.uz/image/700x700/products/supplier/stores/1/2023-05-15/7NBJp1h0744FrmCLVaoBnFso3hHPHkH7yxdYFKP408YKEV3zUOMlmYuuIp7j.jpg",
+    rating: {
+      rate: 4.6,
+      count: 840,
+    },
+  },
+  {
+    id: 34,
+    title: "Nike Sportswear Hoodie",
+    price: 59.99,
+    description: "Classic fleece hoodie with soft fabric for everyday comfort.",
+    category: "men's clothing",
+    image:
+      "https://www.knvbshop.nl/media/catalog/product/cache/d81c8dc66c69ceb69419c2e7e72e896d/2/8/289050_nike-sportswear-club-fleece-hoodie-donkergroen-wit_1.jpg",
+    rating: {
+      rate: 4.4,
+      count: 390,
+    },
+  },
+  {
+    id: 35,
+    title: "Guess Women's Handbag",
+    price: 89.99,
+    description:
+      "Elegant leather handbag designed with modern styling and premium materials.",
+    category: "women's accessories",
+    image:
+      "https://www.robelshoes.eu/sub/robel.sk/images/shop-active-images/hwsb8781060-clo_4_1.jpg?815629",
+    rating: {
+      rate: 4.7,
+      count: 260,
+    },
+  },
+  {
+    id: 36,
+    title: "Samsung Galaxy Watch 6",
+    price: 269.99,
+    description:
+      "Advanced smartwatch with fitness tracking, AMOLED display, and long battery life.",
+    category: "electronics",
+    image:
+      "https://fonexpress.net/wp-content/uploads/2023/09/WATCH-6-44MM-jpg.webp",
+    rating: {
+      rate: 4.6,
+      count: 740,
+    },
+  },
+  {
+    id: 37,
+    title: "Puma Running Shorts",
+    price: 29.99,
+    description:
+      "Lightweight and breathable men's running shorts for daily workouts.",
+    category: "men's clothing",
+    image:
+      "https://resources.mandmdirect.com/Images/_default/p/u/3/pu34627_1_cloudzoom.jpg",
+    rating: {
+      rate: 4.2,
+      count: 180,
+    },
+  },
+  {
+    id: 38,
+    title: "Fjällräven Kånken Backpack",
+    price: 99.99,
+    description: "Durable everyday backpack with iconic Scandinavian design.",
+    category: "men's accessories",
+    image:
+      "https://images.hardloop.fr/398297/fjaellraeven-kanken-laptop-backpack.jpg?w=auto&h=auto&q=80",
+    rating: {
+      rate: 4.8,
+      count: 610,
+    },
+  },
+  {
+    id: 39,
+    title: "Canon EOS M50 Mark II Camera",
+    price: 589.99,
+    description:
+      "Compact mirrorless camera perfect for content creators and photography enthusiasts.",
+    category: "electronics",
+    image:
+      "https://crdms.images.consumerreports.org/f_auto,w_1200/prod/products/cr/models/403240-mirrorless-cameras-canon-eos-m50-mark-ii-w-15-45mm-10019948.png",
+    rating: {
+      rate: 4.7,
+      count: 330,
+    },
+  },
+  {
+    id: 40,
+    title: "Zara Women's Winter Coat",
+    price: 119.99,
+    description:
+      "Stylish long winter coat made from warm and durable materials.",
+    category: "women's clothing",
+    image:
+      "https://s.alicdn.com/@sc04/kf/Hf00031caf5ca429b81a0a1c35859d1834.png",
+    rating: {
+      rate: 4.5,
+      count: 290,
+    },
+  },
 ];
