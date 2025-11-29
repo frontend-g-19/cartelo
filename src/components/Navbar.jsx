@@ -1,16 +1,22 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { MdCloseFullscreen, MdFavorite } from "react-icons/md";
 import { IoLogIn } from "react-icons/io5";
 import { IoMdCart } from "react-icons/io";
 import { HiDotsVertical } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
+import { Context } from "../context/Context";
 
 export default function Navbar() {
   const [openingMenu, setOpeningMenu] = useState(false);
   const navigate = useNavigate();
 
   const handleOpeningMenu = () => setOpeningMenu(!openingMenu);
+
+  const { favorites, cart } = useContext(Context);
+  const likedCount = favorites.length;
+  const addedCount = cart.length;
+  // console.log(likedCount);
 
   const menuArr = [
     { title: "Home", path: "/" },
@@ -40,6 +46,7 @@ export default function Navbar() {
           onClick={() => navigate("/favorites")}
           className="flex items-center gap-2 bg-[#F8F9FA] py-1.5 px-8 rounded-xl text-lg font-semibold text-[#2C3E50] cursor-pointer"
         >
+          <span className="text-red-500">{likedCount}</span>
           <MdFavorite size={22} />
           Favorites
         </button>
@@ -48,6 +55,7 @@ export default function Navbar() {
           onClick={() => navigate("/cart")}
           className="flex items-center gap-2 bg-[#F8F9FA] py-1.5 px-8 rounded-xl text-lg font-semibold text-[#2C3E50] cursor-pointer"
         >
+          <span className="text-red-500">{addedCount}</span>
           <IoMdCart size={22} />
           Cart
         </button>
@@ -119,6 +127,7 @@ export default function Navbar() {
                 onClick={() => navigate("/favorites")}
                 className="flex items-center gap-2 py-1.5 px-8 rounded-xl border-2 w-full text-lg font-semibold text-[#2C3E50] cursor-pointer"
               >
+                <span className="text-red-500">{likedCount}</span>
                 <MdFavorite size={22} />
                 Favorites
               </button>
@@ -127,6 +136,7 @@ export default function Navbar() {
                 onClick={() => navigate("/cart")}
                 className="flex items-center gap-2 py-1.5 px-8 rounded-xl border-2 w-full text-lg font-semibold text-[#2C3E50] cursor-pointer"
               >
+                <span className="text-red-500">{addedCount}</span>
                 <IoMdCart size={22} />
                 Cart
               </button>

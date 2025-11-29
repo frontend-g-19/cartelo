@@ -9,6 +9,9 @@ export const ContextProvider = ({ children }) => {
   const [favorites, setFavorites] = useState(
     JSON.parse(localStorage.getItem("favorites")) || []
   );
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -22,7 +25,13 @@ export const ContextProvider = ({ children }) => {
           liked: favorites.some((f) => f.id === mahsulot.id),
         }));
 
+        const updatedProductsCart = combinedProducts.map((mahsulot) => ({
+          ...mahsulot,
+          addedCart: cart.some((a) => a.id === mahsulot.id),
+        }));
+
         setProducts(updatedProducts);
+        setProducts(updatedProductsCart);
         setIsLoading(false);
       } catch (error) {
         console.log("Malumotlar yuklashda xatolik yuz berdi!");
@@ -46,6 +55,25 @@ export const ContextProvider = ({ children }) => {
 
     setProducts((prev) =>
       prev.map((p) => (p.id === product.id ? { ...p, liked: !p.liked } : p))
+    );
+  };
+
+  // adding cart function
+  const toggleCart = (product) => {
+    let updatedCart;
+    if (cart.some((a) => a.id === product.id)) {
+      updatedCart = cart.filter((a) => a.id !== product.id);
+    } else {
+      updatedCart = [...cart, product];
+    }
+
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+    setProducts((prev) =>
+      prev.map((p) =>
+        p.id === product.id ? { ...p, addedCart: !p.addedCart } : p
+      )
     );
   };
 
@@ -73,7 +101,9 @@ export const ContextProvider = ({ children }) => {
   }
 
   return (
-    <Context.Provider value={{ products, favorites, toggleFavorite }}>
+    <Context.Provider
+      value={{ products, favorites, cart, toggleFavorite, toggleCart }}
+    >
       {children}
     </Context.Provider>
   );
