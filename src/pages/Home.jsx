@@ -3,30 +3,48 @@ import { Context } from "../context/Context";
 import { IoIosHeartEmpty, IoMdHeart } from "react-icons/io";
 import { IoMdCart } from "react-icons/io";
 import { Rating, Stack } from "@mui/material";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const { products, toggleFavorite } = useContext(Context);
 
   return (
     <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 py-16 px-4">
-      {products.map((tovar) => (
-        <div
+      {products.map((tovar, index) => (
+        <motion.div
           key={tovar.id}
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{
+            duration: 0.55,
+            ease: "easeOut",
+            delay: index * 0.06, // Cards enter one-by-one ✨
+          }}
+          whileHover={{
+            scale: 1.03,
+            translateY: -6,
+            boxShadow: "0 12px 30px rgba(0,0,0,0.12)",
+          }}
           className="
             relative flex flex-col justify-between
             rounded-2xl shadow-md p-4 bg-white
             transition-all duration-300
-            hover:shadow-xl hover:-translate-y-1
             min-h-[380px] w-full max-w-[330px] mx-auto
           "
         >
           {/* Badge + Like */}
           <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-            <span className="bg-[#2C3E50] text-white py-0.5 px-3 rounded-md text-xs shadow-sm">
+            <motion.span
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="bg-[#2C3E50] text-white py-0.5 px-3 rounded-md text-xs shadow-sm"
+            >
               {tovar.rating.count}
-            </span>
+            </motion.span>
 
-            <button
+            <motion.button
+              whileTap={{ scale: 0.8 }}
               onClick={() => toggleFavorite(tovar)}
               className="text-red-500 cursor-pointer hover:scale-110 transition"
             >
@@ -35,16 +53,20 @@ export default function Home() {
               ) : (
                 <IoIosHeartEmpty size={22} />
               )}
-            </button>
+            </motion.button>
           </div>
 
           {/* Image */}
-          <img
+          <motion.img
             src={tovar.image}
             alt="mahsulot"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.55, delay: 0.1 }}
+            whileHover={{ scale: 1.08 }}
             className="
               w-full h-40 object-contain mt-8
-              transition-all duration-300 hover:scale-105
+              transition-all duration-300
             "
           />
 
@@ -80,19 +102,21 @@ export default function Home() {
           </Stack>
 
           {/* Cart button */}
-          <button
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.04 }}
             className="
               mt-3 flex items-center justify-center gap-2
               bg-[#2C3E50] text-white py-1.5 w-full
               rounded-lg text-sm font-semibold shadow-sm
               transition-all duration-300
-              hover:bg-[#1b2836] hover:shadow-md hover:scale-[1.02] cursor-pointer
+              hover:bg-[#1b2836]
             "
           >
             <IoMdCart size={18} />
             Add to cart
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       ))}
     </div>
   );
