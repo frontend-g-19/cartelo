@@ -3,7 +3,7 @@ import shopping3d from "../assets/shopping-3d.png";
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f6f9fc] to-[#e9eef5] flex items-center justify-center px-6 py-20">
+    <div className="min-h-screen bg-linear-to-br from-[#f6f9fc] to-[#e9eef5] flex items-center justify-center px-6 py-20">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}

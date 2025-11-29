@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1F2A36] text-[#E9ECEF] pt-16 pb-10 mt-20 relative overflow-hidden">
       {/* Gradient light */}
-      <div className="absolute inset-0 opacity-10 bg-gradient-to-tr from-[#2C3E50] to-transparent"></div>
+      <div className="absolute inset-0 opacity-10 bg-linear-to-tr from-[#2C3E50] to-transparent"></div>
 
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
         {/* Brand */}
