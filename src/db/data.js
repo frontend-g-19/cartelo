@@ -77,7 +77,8 @@ export const defaultProducts = [
       "Insulated winter jacket designed to keep you warm in extreme cold.",
     category: "women's clothing",
     image:
-      "https://images.asos-media.com/products/the-north-face-retro-nuptse-polar-fleece-puffer-jacket-in-black/206576627-1-black?$n_640w$&wid=513&fit=constrain",
+      "https://images-cdn.ubuy.co.nl/68d3f556fcd2b21ff60640fa-new-the-north-face-puffer-jacket-700.jpg",
+    // "https://images.asos-media.com/products/the-north-face-retro-nuptse-polar-fleece-puffer-jacket-in-black/206576627-1-black?$n_640w$&wid=513&fit=constrain",
     rating: {
       rate: 5,
       count: 520,
